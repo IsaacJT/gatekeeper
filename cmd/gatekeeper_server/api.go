@@ -1,18 +1,27 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+	"is.having.coffee/gatekeeper/gatekeeper-server/api/v1"
+)
+
+func initV1API(router *gin.Engine) {
+	apiV1 := router.Group("/v1")
+	{
+		apiV1.GET("/", v1.RootEndpoint)
+	}
+}
 
 func initAPI() (*gin.Engine, error) {
 	router := gin.Default()
 
-	// Simple group: v1
-	/*v1 := */
-	router.Group("/v1")
-	{
-		/*v1.POST("/login", loginEndpoint)
-		v1.POST("/submit", submitEndpoint)
-		v1.POST("/read", readEndpoint)*/
+	if router == nil {
+		return nil, fmt.Errorf("could not create router")
 	}
+
+	initV1API(router)
 
 	return router, nil
 }

@@ -9,6 +9,9 @@ const (
 	ConfigDatabaseConnString = "db_connection_string"
 	ConfigConsole            = "console"
 	ConfigListenSocket       = "listen"
+	ConfigOAuth2Endpoint     = "oauth2_endpoint"
+	ConfigOAuth2ClientID     = "oauth2_id"
+	ConfigOAuth2ClientSecret = "oauth2_secret"
 )
 
 var (
@@ -16,7 +19,10 @@ var (
 		ConfigDatabaseBackend:    "sqlite",
 		ConfigDatabaseConnString: "gatekeeper.sqlite3",
 		ConfigConsole:            true,
-		ConfigListenSocket:       "localhost:8080",
+		ConfigListenSocket:       ":8080",
+		ConfigOAuth2Endpoint:     "http://keycloak",
+		ConfigOAuth2ClientID:     "TODO",
+		ConfigOAuth2ClientSecret: "TODO",
 	}
 )
 

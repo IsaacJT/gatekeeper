@@ -10,7 +10,7 @@ import (
 func initV1API(router *gin.Engine) {
 	apiV1 := router.Group("/v1")
 	{
-		apiV1.GET("/", v1.RootEndpoint)
+		apiV1.GET("/info", v1.InfoEndpoint)
 	}
 }
 

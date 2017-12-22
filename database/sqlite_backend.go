@@ -6,7 +6,7 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/spf13/viper"
-	"is.having.coffee/gatekeeper/gatekeeper-server/config"
+	"github.com/isaacjt/gatekeeper-server/config"
 )
 
 type SqliteBackend interface {

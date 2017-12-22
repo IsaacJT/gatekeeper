@@ -8,6 +8,7 @@ const (
 	ConfigDatabaseBackend    = "db_backend"
 	ConfigDatabaseConnString = "db_connection_string"
 	ConfigConsole            = "console"
+	ConfigListenSocket       = "listen"
 )
 
 var (
@@ -15,6 +16,7 @@ var (
 		ConfigDatabaseBackend:    "sqlite",
 		ConfigDatabaseConnString: "gatekeeper.sqlite3",
 		ConfigConsole:            true,
+		ConfigListenSocket:       "localhost:8080",
 	}
 )
 

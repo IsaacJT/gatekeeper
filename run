@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "Fetching dependencies…"
+go get -v ./...
+
 echo "Compiling…"
 go build -o gatekeeper_server cmd/gatekeeper_server/*.go
 

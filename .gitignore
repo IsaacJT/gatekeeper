@@ -1,0 +1,3 @@
+*.sqlite3
+gatekeeper_server
+.vscode

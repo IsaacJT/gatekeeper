@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Compiling…"
+go build cmd/gatekeeper_server/*.go
+
+echo "Done! Running gatekeeper_server…"
+
+./gatekeeper_server
+
+

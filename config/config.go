@@ -37,6 +37,8 @@ func InitConfig() error {
 	viper.AddConfigPath("/etc/gatekeeper/")   // path to look for the config file in
 	viper.AddConfigPath("$HOME/.gatekeeper/") // call multiple times to add many search paths
 	viper.AddConfigPath(".")                  // optionally look for config in the working directory
+	viper.SetEnvPrefix("GATEKEEPER")
+	viper.AutomaticEnv()
 	loadDefaults()
 	return viper.ReadInConfig()
 }

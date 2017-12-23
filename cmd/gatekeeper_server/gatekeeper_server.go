@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/spf13/viper"
-	"github.com/isaacjt/gatekeeper-server/config"
-	"github.com/isaacjt/gatekeeper-server/database"
+	"github.com/isaacjt/gatekeeper/config"
+	"github.com/isaacjt/gatekeeper/database"
 )
 
 func main() {

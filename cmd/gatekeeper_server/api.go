@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/isaacjt/gatekeeper-server/api/v1"
+	"github.com/isaacjt/gatekeeper/api/v1"
 )
 
 func initV1API(router *gin.Engine) {

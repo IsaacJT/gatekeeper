@@ -3,29 +3,30 @@ package database
 import (
 	"database/sql"
 	"io/ioutil"
+	"log"
 
-	_ "github.com/mattn/go-sqlite3"
-	"github.com/spf13/viper"
 	"github.com/isaacjt/gatekeeper/config"
+	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 )
 
-type SqliteBackend interface {
+type PostgresBackend interface {
 	DatabaseBackend
 }
 
-type sqliteBackend struct {
-	SqliteBackend
+type postgresBackend struct {
+	PostgresBackend
 	db *sql.DB
 }
 
-func (backend *sqliteBackend) Init() error {
+func (backend *postgresBackend) Init() error {
 	dsn := viper.GetString(config.ConfigDatabaseConnString)
-	db, err := sql.Open("sqlite3", dsn)
+	db, err := sql.Open("postgres", dsn)
 	if err != nil {
-		return err
+		log.Fatal(err)
 	}
 	backend.db = db
-	initScript, err := ioutil.ReadFile("resource/sql/init_sqlite3.sql")
+	initScript, err := ioutil.ReadFile("resource/sql/init_psql.sql")
 	if err != nil {
 		return err
 	}
@@ -39,13 +40,13 @@ func (backend *sqliteBackend) Init() error {
 	return tx.Commit()
 }
 
-func (backend sqliteBackend) Close() error {
+func (backend postgresBackend) Close() error {
 	if backend.db != nil {
 		return backend.db.Close()
 	}
 	return nil
 }
 
-func (backend sqliteBackend) GetDb() *sql.DB {
+func (backend postgresBackend) GetDb() *sql.DB {
 	return backend.db
 }

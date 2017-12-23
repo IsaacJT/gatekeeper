@@ -3,8 +3,8 @@ package database
 import (
 	"fmt"
 
+	"github.com/isaacjt/gatekeeper/config"
 	"github.com/spf13/viper"
-	"github.com/isaacjt/gatekeeper-server/config"
 )
 
 var (
@@ -13,6 +13,8 @@ var (
 
 func loadBackend(backendName string) (DatabaseBackend, error) {
 	switch backendName {
+	case "postgres":
+		return &postgresBackend{}, nil
 	case "sqlite":
 		return &sqliteBackend{}, nil
 	default:
